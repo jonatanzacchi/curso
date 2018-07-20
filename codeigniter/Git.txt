@@ -11,6 +11,8 @@ git push -u origin master
 PUXAR DADOS DO GITHUB
 git clone https://github.com/jonatanzacchi/curso.git
 
+git pull origin master --allow-unrealted-histories
+
 
 git add .     > adiciona arquivos novos para commit no repositório
 git commit     > gera atualização dos arquivos
