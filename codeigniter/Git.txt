@@ -4,8 +4,12 @@ git init
 git add README.md
 git commit -m "first commit"
 
-git remote add origin https://github.com/USER/REPO.git
+SALVAR DADOS
+git remote add origin https://github.com/jonatanzacchi/curso.git
 git push -u origin master
+
+PUXAR DADOS DO GITHUB
+git clone https://github.com/jonatanzacchi/curso.git
 
 
 git add .     > adiciona arquivos novos para commit no repositório
