@@ -1,0 +1,30 @@
+@media only screen and (max-width: 801px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 801px) and (max-width: 1600px){
+    /* For Desktop/Tablets/Ipad: */
+    .formLogin {
+        width: 450px;
+        height: 400px;
+        margin-left: 80px; /* metade da largura */
+        margin-top: 0px; /* metade da altura */
+        position: absolute;
+        top: 10%;
+        left: 30%;
+    }
+}
+@media only screen and (min-width: 1600px) {
+    /* For Desktop/Tablets/Ipad: */
+    .formLogin {
+        width: 800px;
+        height: 800px;
+        margin-left: 0px; /* metade da largura */
+        margin-top: 0px; /* metade da altura */
+        position: absolute;
+        top: 10%;
+        left: 40%;
+    }
+}
