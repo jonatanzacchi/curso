@@ -1,1 +1,14 @@
-git commit -m "Mensagem"
+echo "# REPO" >> README.md
+
+git init
+git add README.md
+git commit -m "first commit"
+
+git remote add origin https://github.com/USER/REPO.git
+git push -u origin master
+
+
+git add .     > adiciona arquivos novos para commit no repositório
+git commit     > gera atualização dos arquivos
+git push    > empurra os arquivos para o github
+git clone https://github.com/USER/REPO.git
