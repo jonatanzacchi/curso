@@ -13,6 +13,10 @@ git clone https://github.com/jonatanzacchi/curso.git
 
 git pull origin master --allow-unrealted-histories
 
+ALTERAR REPOSITÓRIO
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+
+
 
 git add .     > adiciona arquivos novos para commit no repositório
 git commit     > gera atualização dos arquivos
