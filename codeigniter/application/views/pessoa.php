@@ -1,4 +1,5 @@
-<script src="bootstrap-3/js/personalizados/pessoa.js"></script>
+<script src="<?php echo base_url(); ?>bootstrap-3/js/personalizados/pessoa.js"></script>
+        
 <title>Cadastro de Pessoas</title>
 
 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-2 main">
@@ -78,7 +79,6 @@
                                 <input class="form-control" type="text" placeholder="UF" name="uf" id="uf" required>
                             </div>
                         </div>
-                        
                 </div>
 
                 <div class="modal-footer"> <!-- não está enviando pois o body deve fechar antes-->
@@ -93,5 +93,27 @@
 </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<div class="container">
+    <table class="table table-striped table-bordered table-hover" id="tabelaClientes">
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Documento</td>
+                <td>Fone</td>
+                <td>E-Mail</td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($listaPessoa as $row)?>
+            <tr>
+                <td>asdasd</td>
+                <td>asdasd</td>
+                <td>asdasd</td>
+                <td>asdasdas</td>
+            </tr>
+        </tbody>
+    </table>    
+</div>
 
 

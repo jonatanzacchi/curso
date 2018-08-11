@@ -6,10 +6,13 @@
         <link href="<?php echo base_url();?>bootstrap-3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url();?>bootstrap-4/css/formLogin.css" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url();?>fontawesome-5/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>bootstrap-3/css/personalizados/jquery.dataTables.min.css" rel="stylesheet"/>
         <script src="<?php echo base_url();?>bootstrap-3/js/jquery.js"></script> 
         <script src="<?php echo base_url();?>bootstrap-3/js/bootstrap.min.js"></script>        
         <script src="<?php echo base_url();?>fontawesome-5/svg-with-js/js/fontawesome.min.js"/></script>
+        <script src="<?php echo base_url();?>bootstrap-3/js/personalizados/jquery.dataTables.min.js"/></script>
 </head>
+
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
