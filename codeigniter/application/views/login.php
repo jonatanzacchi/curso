@@ -1,115 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-		<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url(); ?>bootstrap-4/icone/icone.ico">
-        <title>Login</title>
-        <link href="bootstrap-4/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="fontawesome-5/web-fonts-with-css/css/fontawesome-all.css" rel="stylesheet"/>
-        <link href="bootstrap-4/css/formLogin.css" rel="stylesheet"/>
-
-        <script src="jquery-3.3.1.slim.min.js"></script>
-        <script src="popper.min.js"></script>
-        <script src="bootstrap-4/js/bootstrap.min.js"></script>
-    </head>
-    <style>
-        body{
-            background: #f3f3f3;
-            margin-top: 5%;
-        }
-    </style>
-
-    <body>    
-        <!--<center>-->
-        <div class="container col-md-offset-4 col-lg-4 col-md-3 col-sm-12 col-xs-12 formLogin">
-            <div class="row">
-                <div class="card">
-                    <div class="card-header"><span>Login</span></div>
-                    <div class="card-body">
-                        <form action="<?php echo base_url() . 'login/logarUsuario' ?>" method="post">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Usuário</span>
-                                </div>
-                                <input id="usuario" type="text" class="form-control" name="usuario" value="" placeholder="Usuário">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Senha</span>
-                                </div>
-                                <input id="senha" type="password" class="form-control" name="senha" placeholder="Senha">
-                            </div>
-                            <div class="float-right">
-                                <button type="submit" class="btn btn-primary">Entrar</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card-footer text-muted text-center">
-                        <div>
-                            <a href="<?php echo base_url() . 'usuario' ?>">Cadastre-se</a>
-                        </div>
-                        <span>Curso Web 2018 ©</span>
-                    </div>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                        Novo Usuário
-                    </button>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="bootstrap-3/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="bootstrap-4/css/formLogin.css" rel="stylesheet" type="text/css"/>
+        <link href="fontawesome-5/web-fonts-with-css/css/fontawesome.min.css" rel="stylesheet"/>
+        <script src="bootstrap-3/js/jquery.js"></script> 
+        <script src="bootstrap-3/js/bootstrap.min.js"></script>        
+        <script src="fontawesome-5/svg-with-js/js/fontawesome.min.js"/></script>
+    <title>Login</title>
+</head>
+<body>
+    <form method="post" class="formLogin" action="<?php echo base_url() . 'Login/efetua_login' ?>">
+        <div class="panel panel-info col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-0 col-sm-8 col-xs-offset-0 col-xs-12">
+            <div class="panel panel-title-">
+                <h4>LOGIN</h4>
+            </div>
+            <div class="panel panel-body">
+                <div class="input-group-md">
+                    <span class="input-group-text" for="usuario">Usuário</span>
+                    <input type="text" class="form-control" id="usuario">
+                </div>
+                <br>
+                <div class="input-group-md">
+                    <span class="input-group-text" for="senha">Senha</span>
+                    <input type="password" class="form-control" id="senha">
+                </div>
+                <br>
+                <div class="float-right">
+                    <button type="submit" class="btn btn-info">ENTRAR</button>                        
                 </div>
             </div>
+            <div class="panel panel-footer">
+                <span style="text-align: right">Curso Web 2018 ©</span>
+            </div>
         </div>
-
-
-        <div class="container">
-            <!-- The Modal -->
-            <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Cadastro de Usuário</h4>
-                            <button type="button" class="close" data-dismiss="modal">X</button>
-                        </div>
-
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <form action="<?php echo base_url() . 'usuario/novo' ?>" name="formulario" method="post">
-                                <div class="row">
-                                    <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">			
-                                        <label>Usuário:</label>
-                                        <input type="text" name="usuario" id="usuario" class="form-control" required>
-                                    </div>
-                                    <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                        <label>Senha:</label>
-                                        <input type="password" name="senha" id="senha" class="form-control" required>
-                                    </div>
-                                    <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                        <label>Status:</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="status" id="status" value="1">
-                                            <label class="form-check-label" for="status">Ativo</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="status" id="status" value="2">
-                                            <label class="form-check-label" for="status">Desativado</label>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-group col-md-12" align="right">				
-                                        <input type="submit" class="btn btn-success" value="Enviar">
-                                    </div>			
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>  
-        </div>           
-
-        <!--</center>-->
-    </body> 
+    </form>
+</body>
 </html>

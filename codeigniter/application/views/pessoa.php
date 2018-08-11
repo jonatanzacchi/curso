@@ -1,126 +1,97 @@
-<?php
-	
-	@$idUsuario = $_SESSION['idUsuario'];
-	@$usuario = $_SESSION['usuario'];
-	
-	if ((!isset($_SESSION['idUsuario']) == true) and (!isset ($_SESSION['usuario']) == true)) {
-		unset($_SESSION['idUsuario']);
-		unset($_SESSION['usuario']);
-		header('location:login');
-	}
-?>
-	<div class="col-sm-9 col-sm-offset-3 col-md-12 col-md-offset-2 main">
-		<div id="container">
-			<h1 align="center">Formulário</h1>
-			<hr>	
-			<form action="<?php echo base_url() . 'pessoa/salvar' ?>" name="formulario" method="post">
-				<div class="row">
-					<div id="container" class="col-md-12">
-						<h5><i class="fas fa-address-card"></i> Dados Pessoais </h5>
-						<hr>
-					</div>
-					<div class="form-group col-md-6">			
-						<label>Nome:</label>
-						<input type="text" name="nome" id="nome" class="form-control" required>
-					</div>
-					<div class="form-group col-md-6">
-						<label>Data de Nascimento:</label>
-						<input type="date" name="dt_nasc" id="dt_nasc" class="form-control" required>
-					</div>
-					<div class="form-group col-md-6">
-						<label>Documento:</label>
-						<input type="text" name="documento" id="documento" class="form-control" placeholder="Ex.: 000.000.000-00" data-mask="000.000.000-00" maxlength="12" required>
-					</div>
-					<div class="form-group col-md-6">
-						<label>Fone:</label>
-						<input type="text" name="fone" id="fone" placeholder="Ex.: (00)00000-0000" data-mask="(99)99999-9999" class="form-control" required>
-					</div>
-					<div id="container" class="col-md-12">
-						<h5><i class="fas fa-search-plus"></i> Dados Adicionais </h5>
-						<hr>
-					</div>			
-					<div class="form-group col-md-6">
-						<label>Endereço:</label>
-						<input type="text" name="endereco" id="endereco" class="form-control" required>
-					</div>
-					<div class="form-group col-md-6">
-						<label>Número:</label>
-						<input type="text" name="numero" id="numero" class="form-control" required>
-					</div>
-					<div class="form-group col-md-6">
-						<label>País:</label>
-						<input type="text" name="pais" id="pais" class="form-control" required>
-					</div>
-					<div class="form-group col-md-4">
-						<label>Cidade:</label>
-						<input type="text" name="cidade" id="cidade" class="form-control" required>
-					</div>
-					<div class="form-group col-md-2">
-						<label>UF:</label>
-						<select class="form-control"  name ="uf" required>
-							<option value="" disabled selected>Selecione</option>
-							<?php foreach ($listaestados as $listar){ ?>
-								<option value="<?php echo $listar->idEstado ?>"><?php echo $listar->uf ?></option>
-							<?php 
-								}
-							?>
-						</select>
-					</div>
-					<div class="form-group col-md-6">
-						<label>E-Mail:</label>
-						<input type="email" name="email" id="email" class="form-control" required>
-					</div>			
-					<div class="form-group col-md-12" align="right">				
-						<input type="submit" class="btn btn-success" value="Enviar">
-					</div>			
-				</div>
-			</form>
-			<?php
-			if ($lista == NULL) {
-			?>
-				<div class="alert alert-success" role="alert">
-					<span>Para incluir informações acesse a página inicial.</span>
-				</div>
-			<?php
-			} else {
-			?>
-				<div class="col-md-12">
-					<div class="panel panel-success">                        
-						<div class="panel-body">
-							<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-								<thead>
-									<tr>
-										<td align=center class="success"> ID </td>
-										<td align=center class="success"> Nome </td>
-										<td align=center class="success"> Documento </td>
-										<td align=center class="success"> Data de Nascimento </td>
-										<td align=center class="success"> Ações </td>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									foreach ($lista as $listar) {
-										?>
-										<tr>
-											<td align=center><?php echo $listar->id ?> </td>
-											<td align=center><?php echo $listar->nome ?> </td>
-											<td align=center><?php echo $listar->documento ?> </td>
-											<td align=center><?php echo $listar->data_nasc ?> </td>
-											<?php
-											echo "<td><a href='index.php/pessoa/deletedata?id=" . $listar->id . "'>Delete</a> ";
-											?>																		
-										</tr>		
-										<?php
-									}
-								}
-								?>
-							</tbody>
-						</table>                           
-					</div>
-				</div>
-			</div>	
-		</div>
-	</div>
-<?php
-    $this->load->view('footer');
-?>
+<script src="bootstrap-3/js/personalizados/pessoa.js"></script>
+<title>Cadastro de Pessoas</title>
+
+<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-2 main">
+
+</div>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalId"><i class="fas fa-user-plus"></i> NOVO </button>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" id="modalId" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 class="modal-title" id="gridSystemModalLabel" style="text-align: center">Cadastro</h2>
+            </div>
+            <div class="modal-body">
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-2 main ">
+                    <form method="post" action="<?php echo base_url() . 'Pessoa/recebe_dados' ?>">
+                        <div class="row form-group"></div>
+                        <div class="row form-group"></div>
+                        <div class="row form-group">
+                            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                                <label for="nome">Nome Completo</label>
+                                <input class="form-control" type="text" placeholder="Nome Completo" name="nome" id="nome" required>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                                <label for="documento">CPF/Passaporte</label>
+                                <br>
+                                <input class="form-control" type="text" placeholder="CPF/Passaporte" name="documento" id="documento" required>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                                <label for="email">E-mail</label>
+                                <br>
+                                <input class="form-control" type="text" placeholder="E-mail" name="email" id="email" required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                                <label for="fone">Telefone</label>
+                                <br>
+                                <input class="form-control" type="text" placeholder="Telefone" name="fone" id="fone" required>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                                <label for="nascimento">Data de Nascimento</label>
+                                <br>
+                                <input class="form-control" type="date" name="nascimento" id="nascimento" required>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                                <label for="pais">País</label>
+                                <br>
+                                <input class="form-control" type="text" placeholder="País" name="pais" id="pais" required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12"> 
+                                <label for="endereco">Endereço</label>
+                                <br>
+                                <input class="form-control" type="text" placeholder="Endereço" name="endereco" id="endereco" required>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                                <label for="numero">Número</label>
+                                <br>
+                                <input class="form-control" type="number" placeholder="Número" name="numero" id="numero">
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                                <label for="cidade">Cidade</label>
+                                <br>
+                                <input class="form-control" type="text" placeholder="Cidade" name="cidade" id="cidade" required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12"></div>
+                            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                                <label for="uf">UF</label>
+                                <br>
+                                <input class="form-control" type="text" placeholder="UF" name="uf" id="uf" required>
+                            </div>
+                        </div>
+                        
+                </div>
+
+                <div class="modal-footer"> <!-- não está enviando pois o body deve fechar antes-->
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="submit" name="enviar" value="ENVIAR" class="btn btn-primary">Salvar</button>
+                </div>
+                </form>
+            </div>
+            
+        </div>
+    </div><!-- /.modal body -->
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+

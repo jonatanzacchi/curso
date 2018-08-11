@@ -19,6 +19,6 @@ class listar_controller extends CI_Controller {
     public function index() {
         $dados['listaPessoa'] = $this->pessoa_model->get_pessoas();
         //Carrega a View
-        $this->load->view('listar', $dados);
+        $this->load->view('listar_view', $dados);
     }
 }
