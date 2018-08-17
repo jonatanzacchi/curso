@@ -19,10 +19,10 @@ class Pessoa_model extends CI_Model {
         parent::__construct();
     }
 
-    public function inserir() {
-        //$dados = array("nome" => $this->nome);
+    public function inserir($dados) {
+        $dados = array("nome" => $this->nome);
 
-        return $this->db->insert('cadastro', $this);
+        return $this->db->insert('cadastro', $dados);
     }
     
     public function get_pessoa() {

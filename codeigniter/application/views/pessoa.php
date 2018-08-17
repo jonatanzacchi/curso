@@ -95,7 +95,7 @@
 </div><!-- /.modal -->
 
 <div class="container">
-    <table class="table table-striped table-bordered table-hover" id="tabelaClientes">
+    <table class="table table-striped table-bordered table-hover" id="tabelaPessoa">
         <thead>
             <tr>
                 <td>Nome</td>
@@ -105,13 +105,16 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($listaPessoa as $row)?>
+            <?php foreach ($listaPessoa as $row){?>
             <tr>
-                <td>asdasd</td>
-                <td>asdasd</td>
-                <td>asdasd</td>
-                <td>asdasdas</td>
+                <td><?php echo $row->nome; ?></td>
+                <td><?php echo $row->documento; ?></td>
+                <td><?php echo $row->fone; ?></td>
+                <td><?php echo $row->email; ?></td>
             </tr>
+            <?php
+                }
+            ?>
         </tbody>
     </table>    
 </div>

@@ -35,15 +35,17 @@ class Pessoa extends CI_Controller {
 
         $dados = array(
             "nome" => $nome,
-            "nome" => $nome,
-            "nome" => $nome,
-            "nome" => $nome,
-            "nome" => $nome,
-            "nome" => $nome,
-            "nome" => $nome
+            "documento" => $documento,
+            "email" => $email,
+            "fone" => $fone,
+            "nascimento" => $nascimento,
+            "endereco" => $endereco,
+            "cidade" => $cidade,
+            "uf" => $uf,
+            "pais" => $pais
         );
 
-        $resultado = $this->pessoaModel->set_pessoa($dados);
+        $resultado = $this->pessoaModel->inserir($dados);
         
         
     }
