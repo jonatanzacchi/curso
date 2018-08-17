@@ -27,7 +27,7 @@ class Pessoa_model extends CI_Model {
     
     public function get_pessoa() {
         //obter dados
-        $sql = "SELECT nome, documento, fone, email FROM cadastro";
+        $sql = "SELECT id, nome, documento, fone, email FROM cadastro";
         return $this->db->query($sql)->result();
     }
     

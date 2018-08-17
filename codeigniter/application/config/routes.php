@@ -6,6 +6,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['default_controller'] = 'Login';
 //
 $route['pessoa'] = 'Pessoa';
+$route['editapessoa(:num)'] = 'Pessoa/editaPessoa/$1';
 $route['recebe_dados'] = 'Pessoa/recebe_dados';
 $route['get_pessoa'] = 'Pessoa/get_pessoa';
 $route['listar'] = 'Listar';

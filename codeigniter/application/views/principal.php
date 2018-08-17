@@ -23,7 +23,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <span style="font-size: 3rem;">
-                        <a href="<?php echo base_url(); ?>"><i class="fa fa-door-open"></i> </a>                        
+                        <a href="<?php echo base_url(); ?>"><i class="fa fa-door-open"></i></a>                        
                     </span>
                 </ul>
             </div>
