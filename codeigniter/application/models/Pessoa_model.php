@@ -25,6 +25,12 @@ class Pessoa_model extends CI_Model {
         return $this->db->insert('cadastro', $this);
     }
     
+    public function get_pessoa() {
+        //obter dados
+        $sql = "SELECT nome, documento, fone, email FROM cadastro";
+        return $this->db->query($sql)->result();
+    }
+    
     public function get_alunos(){
 		$this->db->select("*, DATE_FORMAT(data_nasc,'%d/%m/%Y') AS data_nasc");
                 $this->db->join('estados', 'cadastro.uf = estados.idEstado');
