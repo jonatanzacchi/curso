@@ -31,6 +31,12 @@ class Pessoa_model extends CI_Model {
         return $this->db->query($sql)->result();
     }
     
+    public function editaPessoa($id){
+        $sql = "SELECT * FROM cadastro WHERE id = '$id'";
+        vardump ($this->db->query($sql)->result());        
+    }
+
+
     public function get_alunos(){
 		$this->db->select("*, DATE_FORMAT(data_nasc,'%d/%m/%Y') AS data_nasc");
                 $this->db->join('estados', 'cadastro.uf = estados.idEstado');

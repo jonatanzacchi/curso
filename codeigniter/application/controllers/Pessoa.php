@@ -16,8 +16,17 @@ class Pessoa extends CI_Controller {
         $data['pagina'] = 'pessoa';
         $this->load->view('principal', $data);
     }
+    
     public function get_pessoa(){
         $this->pessoaModel->get_pessoa();
+    }
+    
+    public function editaPessoa($id){
+        /*
+         * Busca Cadastro de Pessoa para editar no Modal.
+        */
+        $this->pessoaModel->editaPessoa($id);
+        
     }
 
     public function recebe_dados() {
