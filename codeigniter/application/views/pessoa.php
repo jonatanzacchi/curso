@@ -95,7 +95,7 @@
 </div><!-- /.modal -->
 
 <div class="container">
-    <table class="table table-striped table-bordered table-hover" id="tabelaPessoa">
+    <table class="table table-striped table-bordered table-hover" id="tabelaClientes">
         <thead>            
             <th>Nome</th>
             <th>Documento</th>
@@ -104,14 +104,14 @@
             <th>Funções</th>            
         </thead>
         <tbody>
-            <?php foreach ($listaPessoa as $row){?>
+            <?php foreach ($listaPessoa as $row){ ?>
                 <tr>
                     <td><?php echo $row->nome; ?></td>
                     <td><?php echo $row->documento; ?></td>
                     <td><?php echo $row->fone; ?></td>
                     <td><?php echo $row->email; ?></td>
-                    <td><button class="btn btn-warning" data-toggle="modal" data-target="#modalId" value="<?php echo $row->id; ?>">Editar</button>
-                    <button class="btn btn-danger" value="<?php echo $row->id; ?>">Deletar</button></td>
+                    <td><button type="button" id="btnEditar" class="btn btn-warning btnEditar" data-toggle="modal" data-target="#modalId" value="<?php echo $row->id; ?>">Editar</button>
+                    <button type="button" class="btn btn-danger" value="<?php echo $row->id; ?>">Deletar</button></td>
                 </tr>
             <?php
                 }
