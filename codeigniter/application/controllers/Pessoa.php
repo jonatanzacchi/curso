@@ -31,30 +31,32 @@ class Pessoa extends CI_Controller {
 
     public function recebe_dados() {
 
-        $nome = $this->input->post("nome");
-        $documento = $this->input->post("documento");
-        $email = $this->input->post("email");
-        $fone = $this->input->post("fone");
-        $nascimento = $this->input->post("nascimento");
-        $endereco = $this->input->post("endereco");
-        $numero = $this->input->post("numero");
-        $cidade = $this->input->post("cidade");
-        $uf = $this->input->post("uf");
-        $pais = $this->input->post("pais");
+        $nome = $this->input->post("nome", TRUE);
+        $documento = $this->input->post("documento", TRUE);
+        $email = $this->input->post("email", TRUE);
+        $fone = $this->input->post("fone", TRUE);
+        $nascimento = $this->input->post("nascimento", TRUE);
+        $endereco = $this->input->post("endereco", TRUE);
+        $numero = $this->input->post("numero", TRUE);
+        $cidade = $this->input->post("cidade", TRUE);
+        $uf = $this->input->post("uf", TRUE);
+        $pais = $this->input->post("pais", TRUE);
 
         $dados = array(
             "nome" => $nome,
             "documento" => $documento,
             "email" => $email,
             "fone" => $fone,
-            "nascimento" => $nascimento,
+            "dt_nasc" => $nascimento,
             "endereco" => $endereco,
+            "numero" => $numero,
             "cidade" => $cidade,
             "uf" => $uf,
             "pais" => $pais
         );
-
-        $resultado = $this->pessoaModel->inserir($dados);
+        
+        //$resultado =
+        $this->pessoaModel->inserir($dados);
         
         
     }

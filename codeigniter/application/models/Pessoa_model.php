@@ -1,26 +1,36 @@
 <?php
 
-class Pessoa_model extends CI_Model {
-
-    public $id;
-    public $nome;
-    public $documento;
-    public $endereco;
-    public $numero;    
-    public $pais;
-    public $cidade;
-    public $uf;
-    public $fone;
-    public $email;
-    public $data_nasc;   
-   
+class Pessoa_model extends CI_Model {   
 
     public function __construct() {
         parent::__construct();
     }
 
     public function inserir($dados) {
-        $dados = array("nome" => $this->nome);
+        $nome="";
+        $documento="";
+        $endereco="";
+        $numero="";
+        $pais="";
+        $cidade="";
+        $uf="";
+        $fone="";
+        $email="";
+        $dt_nasc="";
+        
+        foreach ($dados as $row=>$value){
+            $nome = $value;
+            $documento = $value;
+            $endereco = $value;
+            $numero = $value;
+            $pais = $value;
+            $cidade = $value;
+            $uf = $value;
+            $fone = $value;
+            $email = $value;
+            $dt_nasc = $value;
+        }
+        echo $nome;
 
         return $this->db->insert('cadastro', $dados);
     }
