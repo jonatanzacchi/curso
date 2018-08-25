@@ -60,5 +60,15 @@ class Pessoa extends CI_Controller {
         
         
     }
+    
+    public function deleteCadastro(){
+        $id=$this->input->get('id');
+        $this->pessoaModel->deletarAluno($id);
+            
+        $data['listaPessoa'] = $this->pessoaModel->get_pessoa();
+        $data['pagina'] = 'pessoa';
+        $this->load->view('principal', $data);
+            
+    }
 
 }
