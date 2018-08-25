@@ -111,7 +111,6 @@
                     <td><?php echo $row->fone; ?></td>
                     <td><?php echo $row->email; ?></td>
                     <td><button type="button" id="btnEditar" class="btn btn-warning btnEditar" data-toggle="modal" data-target="#modalId" value="<?php echo $row->id; ?>">Editar</button>
-                    <button type="button" class="btn btn-danger" value="<?php echo $row->id; ?>">Deletar</button>
                     <a href="<?php echo base_url()."Pessoa/deleteCadastro?id=". $row->id ?>"><button class="btn btn-danger">Deletar</button></a></td>			
                 </tr>
             <?php
